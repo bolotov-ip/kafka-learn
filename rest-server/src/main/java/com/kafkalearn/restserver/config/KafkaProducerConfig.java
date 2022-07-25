@@ -10,6 +10,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.kafka.core.DefaultKafkaProducerFactory;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.kafka.core.ProducerFactory;
+import org.springframework.kafka.support.converter.StringJsonMessageConverter;
 import org.springframework.kafka.support.serializer.JsonSerializer;
 
 import java.util.HashMap;
@@ -39,7 +40,10 @@ public class KafkaProducerConfig {
 
     @Bean
     public KafkaTemplate<String, MessageDto> kafkaTemplate() {
-        return new KafkaTemplate<>(producerFactory());
+        KafkaTemplate<String, MessageDto> template = new KafkaTemplate<>(producerFactory());
+//        template.setMessageConverter(new StringJsonMessageConverter());
+
+        return template;
     }
 
 }

@@ -1,6 +1,6 @@
 package com.kafkalearn.restserver.dto;
 
-public class MessageDto {
+public class MessageDto extends AbstractDto{
     private int x;
     private int y;
 

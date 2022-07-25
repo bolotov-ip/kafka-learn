@@ -18,6 +18,6 @@ public class MessageController {
     public String sendOrder(@RequestBody MessageDto msg){
         String uniqueID = UUID.randomUUID().toString();
         kafkaTemplate.send("msg", uniqueID, msg);
-        return "Working!";
+        return uniqueID;
     }
 }
